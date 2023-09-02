@@ -170,3 +170,63 @@ a {
         padding-left: 0;
     }
 }
+
+#language-toggle {
+    height: 0;
+    width: 0;
+    margin-left: -2%;
+    visibility: hidden;
+}
+
+label[for="language-toggle"] {
+    cursor: pointer;
+    width: 40px;
+    /* Defina a largura desejada para o toggle */
+    height: 20px;
+    /* Defina a altura desejada para o toggle */
+    background: grey;
+    display: inline-block;
+    /* Altere de block para inline-block */
+    border-radius: 100px;
+    position: relative;
+    transition: background 0.3s;
+}
+
+label[for="language-toggle"]:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    /* Ajuste a posição vertical do controle deslizante */
+    left: 3px;
+    /* Ajuste a posição horizontal do controle deslizante */
+    width: 14px;
+    /* Defina a largura do controle deslizante */
+    height: 14px;
+    /* Defina a altura do controle deslizante */
+    background: #fff;
+    border-radius: 100%;
+    transition: 0.3s;
+}
+
+
+/* Adicione esta parte para posicionar o texto à direita */
+
+label[for="language-toggle"]+span#toggle-label {
+    display: inline-block;
+    /* Altere de block para inline-block */
+    vertical-align: middle;
+    /* Centralize verticalmente com o toggle */
+    margin-left: 20px;
+    margin-top: -13px;
+    /* Ajuste conforme necessário para o espaçamento horizontal */
+}
+
+#language-toggle:checked+label[for="language-toggle"] {
+    background: #bada55;
+    /* Cor de fundo quando o toggle está ativado */
+}
+
+#language-toggle:checked+label[for="language-toggle"]:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
