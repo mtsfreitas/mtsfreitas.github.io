@@ -24,6 +24,24 @@
     color: var(--mainTextColor);
 }
 
+#email a {
+    color: #bada55;
+}
+
+.section--page a {
+    color: #adb0b1;
+}
+
+.section--page a {
+    color: #adb0b1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.section--page a:hover {
+    color: #bada55;
+}
+
 body {
     background-color: var(--mainBgColor);
 }
