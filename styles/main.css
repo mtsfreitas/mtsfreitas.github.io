@@ -15,6 +15,7 @@
     --mainLinkColor: var(--mainLinkColor-dark);
     --mainBorderColor: var(--mainBorderColor-dark);
     --mainBgColor: var(--mainBgColor-dark);
+    --mainBRColor: var(--mainBRColor-dark)
 }
 
 * {
@@ -25,7 +26,37 @@
 }
 
 #email a {
-    color: #bada54;
+    color: var(--secondaryTextColor);
+}
+
+#email a:hover {
+    color: var(--mainLinkColor-light);
+}
+
+#enterprise:hover {
+    color: var(--mainLinkColor-light);
+}
+
+@keyframes blink {
+    0% {
+        color: var(--secondaryTextColor);
+        /* Cor padrão */
+    }
+    50% {
+        color: #bada55;
+        /* Cor verde desejada */
+    }
+    100% {
+        color: var(--secondaryTextColor);
+        /* Cor padrão */
+    }
+}
+
+#availability {
+    animation: blink 1s infinite;
+    /* Aplica a animação de piscar */
+    cursor: pointer;
+    /* Adicione se desejar que o cursor mude ao passar o mouse sobre o texto */
 }
 
 .section--page a {
