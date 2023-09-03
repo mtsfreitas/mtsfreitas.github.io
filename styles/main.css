@@ -55,8 +55,6 @@
 #availability {
     animation: blink 1s infinite;
     /* Aplica a animação de piscar */
-    cursor: pointer;
-    /* Adicione se desejar que o cursor mude ao passar o mouse sobre o texto */
 }
 
 .section--page a {
