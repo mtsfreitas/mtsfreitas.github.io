@@ -35,37 +35,48 @@
 		const app = initializeApp(firebaseConfig);
 		const analytics = getAnalytics(app);
         // Função para registrar eventos de log
-        const socialLinks = document.querySelectorAll('a');
-
-        socialLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            const event = analytics.logEvent('social_link_clicked', {
-            link_name: link.href,
-            link_type: link.href.split('/')[3]
+        function trackEvent(eventName) {
+            logEvent(analytics, 'click', {
+                element: eventName
             });
+        }
 
-            console.log(event);
-        });
-        });
-
+        // Adicionar eventos de log para os links e elementos
+        const linkedinLink = document.querySelector('a[href="https://www.linkedin.com/in/mtsfreitas/"]');
+        const githubLink = document.querySelector('a[href="https://github.com/mtsfreitas"]');
+        const whatsappLink = document.querySelector('a[href="https://wa.me/5531975195633"]');
         const emailLink = document.querySelector('a[href="mailto:mtsftsmts@gmail.com"]');
+        const languageToggle = document.getElementById('language-toggle');
 
-        emailLink.addEventListener('click', () => {
-        const event = analytics.logEvent('email_link_clicked', {
-            email_address: 'mtsftsmts@gmail.com'
+        if (linkedinLink) {
+            linkedinLink.addEventListener('click', () => {
+                trackEvent('LinkedIn Link Click');
             });
+        }
 
-        console.log(event);
-        });
+        if (githubLink) {
+            githubLink.addEventListener('click', () => {
+                trackEvent('GitHub Link Click');
+            });
+        }
 
-        const languageToggle = document.querySelector('#language-toggle');
+        if (whatsappLink) {
+            whatsappLink.addEventListener('click', () => {
+                trackEvent('WhatsApp Link Click');
+            });
+        }
 
-        languageToggle.addEventListener('click', () => {
-        const event = analytics.logEvent('language_toggled');
+        if (emailLink) {
+            emailLink.addEventListener('click', () => {
+                trackEvent('Email Link Click');
+            });
+        }
 
-        console.log(event);
-        });
-        
+        if (languageToggle) {
+            languageToggle.addEventListener('change', () => {
+                trackEvent('Language Toggle Click');
+            });
+        }
     </script>
     <div id="container--main">
 
