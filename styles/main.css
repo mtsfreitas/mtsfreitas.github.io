@@ -7,7 +7,7 @@
     --mainBgColor-light: rgb(249, 250, 251);
     --mainTextColor-dark: #fff;
     --secondaryTextColor-dark: #adb0b1;
-    --mainLinkColor-dark: rgb(30, 190, 214);
+    --mainLinkColor-dark: #bada55;
     --mainBorderColor-dark: #2b3031;
     --mainBgColor-dark: #131415;
     --mainTextColor: var(--mainTextColor-dark);
@@ -15,7 +15,8 @@
     --mainLinkColor: var(--mainLinkColor-dark);
     --mainBorderColor: var(--mainBorderColor-dark);
     --mainBgColor: var(--mainBgColor-dark);
-    --mainBRColor: var(--mainBRColor-dark)
+    --mainBRColor: var(--mainBRColor-dark);
+    --blinkColor: #bada55;
 }
 
 * {
@@ -34,23 +35,10 @@
 }
 
 #enterprise:hover {
-    color: var(--mainLinkColor-light);
+    color: #ff7161;
 }
 
-@keyframes blink {
-    0% {
-        color: var(--secondaryTextColor);
-        /* Cor padrão */
-    }
-    50% {
-        color: #bada55;
-        /* Cor verde desejada */
-    }
-    100% {
-        color: var(--secondaryTextColor);
-        /* Cor padrão */
-    }
-}
+
 
 #availability {
     animation: blink 1s infinite;
@@ -70,6 +58,15 @@
 .section--page a:hover {
     color: #bada55;
 }
+
+.light-mode .section--page a:hover {
+    color: var(--mainLinkColor-light);
+}
+
+.section--page .card--project a:hover {
+    color: #ffb900;
+}
+
 
 body {
     background-color: var(--mainBgColor);
@@ -255,7 +252,6 @@ label[for="language-toggle"]:after {
     transition: 0.3s;
 }
 
-
 /* Adicione esta parte para posicionar o texto à direita */
 
 label[for="language-toggle"]+span#toggle-label {
@@ -277,3 +273,52 @@ label[for="language-toggle"]+span#toggle-label {
     left: calc(100% - 3px);
     transform: translateX(-100%);
 }
+
+/* Cores para o modo Light */
+.light-mode {
+    --mainTextColor: var(--mainTextColor-light);
+    --secondaryTextColor: var(--secondaryTextColor-light);
+    --mainLinkColor: var(--mainLinkColor-light);
+    --mainBorderColor: var(--mainBorderColor-light);
+    --mainBgColor: var(--mainBgColor-light);
+    --blinkColor: var(--mainLinkColor-light)
+}
+
+.light-mode a {
+    color: var(--mainTextColor-light);
+}
+
+@keyframes blink {
+    0% {
+        color: var(--secondaryTextColor);
+        /* Cor padrão */
+    }
+    50% {
+        color: var(--blinkColor); /* Cor definida para o modo light */
+    }
+    100% {
+        color: var(--secondaryTextColor);
+        /* Cor padrão */
+    }
+}
+
+
+/* Cores para o modo Dark */
+.dark-mode {
+    --mainTextColor: var(--mainTextColor-dark);
+    --secondaryTextColor: var(--secondaryTextColor-dark);
+    --mainLinkColor: var(--mainLinkColor-dark);
+    --mainBorderColor: var(--mainBorderColor-dark);
+    --mainBgColor: var(--mainBgColor-dark);
+    --blinkColor: #bada55;
+}
+
+.switch__indicator {
+    /* Ajuste a margem esquerda para mover o toggleSwitch para a direita */
+    margin-left: 40px;
+}
+
+.moon-symbol, .sun-symbol {
+    font-size: 24px; 
+}
+
