@@ -37,7 +37,7 @@
 		const analytics = getAnalytics(app);
         // Função para registrar eventos de log
         function trackEvent(eventName) {
-            logEvent(analytics, 'click', {
+            firebase.analytics().logEvent(analytics, 'click', {
                 element: eventName
             });
         }
