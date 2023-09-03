@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const languageToggle = document.getElementById("language-toggle");
 
     if (languageToggle) {
@@ -17,9 +17,19 @@ document.addEventListener("DOMContentLoaded", function() {
         if (languageToggle.checked) {
             // Redireciona para a versão em português
             window.location.href = "index_ptbr.html";
+            
+            // Registre o evento de mudança de idioma no Firebase Analytics
+            firebase.analytics().logEvent('language_toggle', {
+                language: 'pt-BR',
+            });
         } else {
             // Redireciona para a versão em inglês
             window.location.href = "index.html";
+            
+            // Registre o evento de mudança de idioma no Firebase Analytics
+            firebase.analytics().logEvent('language_toggle', {
+                language: 'en-US',
+            });
         }
     }
 });

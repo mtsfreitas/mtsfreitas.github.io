@@ -35,49 +35,22 @@
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
 		const analytics = getAnalytics(app);
-        // Função para registrar eventos de log
-        function trackEvent(eventName) {
-            logEvent(analytics, 'click', {
-                element: eventName
-            });
+
+        function logLinkedInClick() {
+        // Registre o evento de clique no link do LinkedIn no Firebase Analytics
+            firebase.analytics().logEvent('linkedin_link_click');
         }
 
-        // Adicionar eventos de log para os links e elementos
-        const linkedinLink = document.querySelector('a[href="https://www.linkedin.com/in/mtsfreitas/"]');
-        const githubLink = document.querySelector('a[href="https://github.com/mtsfreitas"]');
-        const whatsappLink = document.querySelector('a[href="https://wa.me/5531975195633"]');
-        const emailLink = document.querySelector('a[href="mailto:mtsftsmts@gmail.com"]');
-        const languageToggle = document.getElementById('language-toggle');
-
-        if (linkedinLink) {
-            linkedinLink.addEventListener('click', () => {
-                trackEvent('LinkedIn Link Click');
-            });
+        function logGithubClick() {
+        // Registre o evento de clique no link do LinkedIn no Firebase Analytics
+            firebase.analytics().logEvent('github_link_click');
         }
 
-        if (githubLink) {
-            githubLink.addEventListener('click', () => {
-                trackEvent('GitHub Link Click');
-            });
+        function logWhatsappClick() {
+        // Registre o evento de clique no link do LinkedIn no Firebase Analytics
+            firebase.analytics().logEvent('whatsapp_link_click');
         }
 
-        if (whatsappLink) {
-            whatsappLink.addEventListener('click', () => {
-                trackEvent('WhatsApp Link Click');
-            });
-        }
-
-        if (emailLink) {
-            emailLink.addEventListener('click', () => {
-                trackEvent('Email Link Click');
-            });
-        }
-
-        if (languageToggle) {
-            languageToggle.addEventListener('change', () => {
-                trackEvent('Language Toggle Click');
-            });
-        }
     </script>
     <div id="container--main">
 
@@ -107,9 +80,9 @@
         <section class="section--page">
 
             <div id="socials--list">
-                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank">🔗 Linkedin</a>
-                <a href="https://github.com/mtsfreitas" target="_blank">🔗 Github</a>
-                <a href="https://wa.me/5531975195633" target="_blank" id="availability">🔗 Whatsapp</a>
+                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank" id="linkedin-link" onclick="logLinkedInClick()">🔗 Linkedin</a>
+                <a href="https://github.com/mtsfreitas" target="_blank" id="github-link" onclick="logGithubClick()">🔗 Github</a>
+                <a href="https://wa.me/5531975195633" target="_blank" id="availability" onclick="logWhatsappClick()">🔗 Whatsapp</a>
                 <!--<a href="./assets/resume.pdf" target="_blank">Download Resume</a>-->
             </div>
         </section>

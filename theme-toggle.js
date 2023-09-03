@@ -14,12 +14,22 @@ document.addEventListener("DOMContentLoaded", function () {
             body.classList.remove("dark-mode");
             sunSymbol.style.display = "inline";
             moonSymbol.style.display = "none";
+            
+            // Registre o evento de mudança de tema no Firebase Analytics
+            firebase.analytics().logEvent('theme_toggle', {
+                theme: 'light',
+            });
         } else {
             // Se o switch estiver desativado (modo Dark)
             body.classList.add("dark-mode");
             body.classList.remove("light-mode");
             moonSymbol.style.display = "inline";
             sunSymbol.style.display = "none";
+            
+            // Registre o evento de mudança de tema no Firebase Analytics
+            firebase.analytics().logEvent('theme_toggle', {
+                theme: 'dark',
+            });
         }
     });
 });
