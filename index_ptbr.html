@@ -16,7 +16,7 @@
 	<script type="module">
 		// Import the functions you need from the SDKs you need
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-		import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+		import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
 		// TODO: Add SDKs for Firebase products that you want to use
 		// https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -36,19 +36,8 @@
 		const app = initializeApp(firebaseConfig);
 		const analytics = getAnalytics(app);
 
-        function logLinkedInClick() {
-        // Registre o evento de clique no link do LinkedIn no Firebase Analytics
-            firebase.analytics().logEvent('linkedin_link_click');
-        }
-
-        function logGithubClick() {
-        // Registre o evento de clique no link do LinkedIn no Firebase Analytics
-            firebase.analytics().logEvent('github_link_click');
-        }
-
-        function logWhatsappClick() {
-        // Registre o evento de clique no link do LinkedIn no Firebase Analytics
-            firebase.analytics().logEvent('whatsapp_link_click');
+        function trackLinkClick(linkName) {
+            logEvent(analytics, 'link_click', { link_name: linkName });
         }
 
     </script>
@@ -58,11 +47,11 @@
             <img id="profile-pic" src="./assets/images/profile_pic.jpg">
 
             <div>
-                <input type="checkbox" id="language-toggle" />
+                <input type="checkbox" id="language-toggle" onclick="trackLinkClick('Idioma_ptbr')" />
                 <label for="language-toggle"></label>
                 <span id="toggle-label">Mudar idioma (en-US)</span>
 
-                <input type="checkbox" id="toggleSwitch" class="switch__input" hidden>
+                <input type="checkbox" id="toggleSwitch" class="switch__input" hidden onclick="trackLinkClick('Tema_ptbr')">
                 <label class="switch__label" for="toggleSwitch">
                     <span class="switch__indicator"></span>
                     <span class="moon-symbol">🌙</span>
@@ -73,16 +62,16 @@
                 <p id="bio">Computer Scientist | Software Engineer | iOS Developer</p>
                 <p>Belo Horizonte, Minas Gerais, Brasil </p>
                 <p id="availability">Disponível para trabalho Remoto/Híbrido/Presencial</p>
-                <p id="email"><a href="mailto:mtsftsmts@gmail.com" id="availability">👉 mtsftsmts@gmail.com</a></p>
+                <p id="email"><a href="mailto:mtsftsmts@gmail.com" id="availability" onclick="trackLinkClick('Email_ptbr')">👉 mtsftsmts@gmail.com</a></p>
             </div>
         </section>
 
         <section class="section--page">
 
             <div id="socials--list">
-                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank" id="linkedin-link" onclick="logLinkedInClick()">🔗 Linkedin</a>
-                <a href="https://github.com/mtsfreitas" target="_blank" id="github-link" onclick="logGithubClick()">🔗 Github</a>
-                <a href="https://wa.me/5531975195633" target="_blank" id="availability" onclick="logWhatsappClick()">🔗 Whatsapp</a>
+                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank" id="linkedin-link" onclick="trackLinkClick('LinkedIn_ptbr')">🔗 Linkedin</a>
+                <a href="https://github.com/mtsfreitas" target="_blank" id="github-link" onclick="trackLinkClick('GitHub_ptbr')">🔗 Github</a>
+                <a href="https://wa.me/5531975195633" target="_blank" id="availability" onclick="trackLinkClick('WhatsApp_ptbr')">🔗 Whatsapp</a>
                 <!--<a href="./assets/resume.pdf" target="_blank">Download Resume</a>-->
             </div>
         </section>
