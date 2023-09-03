@@ -16,7 +16,7 @@
 	<script type="module">
 		// Import the functions you need from the SDKs you need
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-		import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+		import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
 		// TODO: Add SDKs for Firebase products that you want to use
 		// https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -35,49 +35,11 @@
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
 		const analytics = getAnalytics(app);
-        // Função para registrar eventos de log
-        function trackEvent(eventName) {
-            app.analytics().analytics().logEvent(analytics, 'click', {
-                element: eventName
-            });
-        }
 
-        // Adicionar eventos de log para os links e elementos
-        const linkedinLink = document.querySelector('a[href="https://www.linkedin.com/in/mtsfreitas/"]');
-        const githubLink = document.querySelector('a[href="https://github.com/mtsfreitas"]');
-        const whatsappLink = document.querySelector('a[href="https://wa.me/5531975195633"]');
-        const emailLink = document.querySelector('a[href="mailto:mtsftsmts@gmail.com"]');
-        const languageToggle = document.getElementById('language-toggle');
-
-        if (linkedinLink) {
-            linkedinLink.addEventListener('click', () => {
-                trackEvent('LinkedIn Link Click');
-            });
+        function trackLinkClick(linkName) {
+            logEvent(analytics, 'link_click', { link_name: linkName });
         }
-
-        if (githubLink) {
-            githubLink.addEventListener('click', () => {
-                trackEvent('GitHub Link Click');
-            });
-        }
-
-        if (whatsappLink) {
-            whatsappLink.addEventListener('click', () => {
-                trackEvent('WhatsApp Link Click');
-            });
-        }
-
-        if (emailLink) {
-            emailLink.addEventListener('click', () => {
-                trackEvent('Email Link Click');
-            });
-        }
-
-        if (languageToggle) {
-            languageToggle.addEventListener('change', () => {
-                trackEvent('Language Toggle Click');
-            });
-        }
+     
     </script>
     <div id="container--main">
 
@@ -101,16 +63,16 @@
                 <p id="bio">Computer Scientist | Software Engineer | iOS Developer </p>
                 <p>Belo Horizonte, Minas Gerais, Brazil </p>
                 <p id="availability">Available for Remote/Hybrid/On-site jobs</p>
-                <p id="email"><a href="mailto:mtsftsmts@gmail.com" id="availability">👉 mtsftsmts@gmail.com</a></p>
+                <p id="email"><a href="mailto:mtsftsmts@gmail.com" id="availability" onclick="trackLinkClick('Email')">👉 mtsftsmts@gmail.com</a></p>
             </div>
         </section>
 
         <section class="section--page">
 
             <div id="socials--list">
-                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank">🔗 Linkedin</a>
-                <a href="https://github.com/mtsfreitas" target="_blank">🔗 Github</a>
-                <a href="https://wa.me/5531975195633" target="_blank" id="availability">🔗 Whatsapp</a>
+                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank" onclick="trackLinkClick('LinkedIn')">🔗 Linkedin</a>
+                <a href="https://github.com/mtsfreitas" target="_blank" onclick="trackLinkClick('GitHub')">🔗 Github</a>
+                <a href="https://wa.me/5531975195633" target="_blank" id="availability" onclick="trackLinkClick('WhatsApp')">🔗 Whatsapp</a>
                 <!--<a href="./assets/resume.pdf" target="_blank">Download Resume</a>-->
             </div>
         </section>
