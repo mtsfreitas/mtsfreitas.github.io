@@ -15,7 +15,11 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"; import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js"; const firebaseConfig = { apiKey: "AIzaSyABI0DPchWq_FzlCDaBNJv2y4OcZmA16Yc",
         authDomain: "mtsfreitasgithubio.firebaseapp.com", projectId: "mtsfreitasgithubio", storageBucket: "mtsfreitasgithubio.appspot.com", messagingSenderId: "72022015160", appId: "1:72022015160:web:c60ed4b94b2d58d13b484d", measurementId: "G-BC7R15VCBP"
-        }; // Initialize Firebase const app = initializeApp(firebaseConfig); const analytics = getAnalytics(app);
+        }; const app = initializeApp(firebaseConfig); const analytics = getAnalytics(app); function trackEvent(eventName) { logEvent(analytics, 'click', { element: eventName }); } const linkedinLink = document.querySelector('a[href="https://www.linkedin.com/in/mtsfreitas/"]');
+        const githubLink = document.querySelector('a[href="https://github.com/mtsfreitas"]'); const whatsappLink = document.querySelector('a[href="https://wa.me/5531975195633"]'); const emailLink = document.querySelector('a[href="mailto:mtsftsmts@gmail.com"]');
+        const languageToggle = document.getElementById('language-toggle'); if (linkedinLink) { linkedinLink.addEventListener('click', () => { trackEvent('LinkedIn Link Click'); }); } if (githubLink) { githubLink.addEventListener('click', () => { trackEvent('GitHub
+        Link Click'); }); } if (whatsappLink) { whatsappLink.addEventListener('click', () => { trackEvent('WhatsApp Link Click'); }); } if (emailLink) { emailLink.addEventListener('click', () => { trackEvent('Email Link Click'); }); } if (languageToggle)
+        { languageToggle.addEventListener('change', () => { trackEvent('Language Toggle Click'); }); }
     </script>
     <div id="container--main">
 
