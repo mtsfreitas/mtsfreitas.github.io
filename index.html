@@ -40,6 +40,8 @@
             logEvent(analytics, 'link_click', { link_name: linkName });
         }
 
+        logEvent(analytics, 'link_click', { link_name: 'teste' });
+
         // Função para obter a localização do usuário
         function getUserLocation() {
         if ("geolocation" in navigator) {
