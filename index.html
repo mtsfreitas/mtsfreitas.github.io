@@ -36,12 +36,14 @@
 		const app = initializeApp(firebaseConfig);
 		const analytics = getAnalytics(app);
 
+
+        logEvent(analytics, 'goal_completion', { name: 'lever_puzzle'});
+        analytics.logEvent('goal_completion', { name: 'lever_puzzle2'});
+
         function trackLinkClick(linkName) {
             logEvent(analytics, 'link_click', { link_name: linkName });
         }
 
-        logEvent(analytics, 'goal_completion', { name: 'lever_puzzle'});
-        analytics.logEvent('goal_completion', { name: 'lever_puzzle2'});
 
         // Função para obter a localização do usuário
         function getUserLocation() {
