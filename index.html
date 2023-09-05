@@ -52,6 +52,9 @@
                 .then(data => {
                 const city = data.results[0].components.city;
                 console.log(city);
+                console.log(data);
+                console.log(response);
+
 
                 // Envie a cidade para o Firebase Analytics como um evento personalizado
                 logEvent(analytics, 'user_location', { city: city });
