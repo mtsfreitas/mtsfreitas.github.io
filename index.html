@@ -35,6 +35,7 @@
             logEvent(analytics, 'goal_completion', { name: 'teste' });
 
             function trackLinkClick(linkName) {
+                console.log(linkName);
                 logEvent(analytics, 'link_click', { link_name: linkName });
             }
 
