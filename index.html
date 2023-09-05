@@ -44,11 +44,14 @@
             navigator.geolocation.getCurrentPosition(function (position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
+            console.log(latitude);
+            console.log(longitude);
 
             fetch(`https://api.opencagedata.com/geocode/v1/json?key=bb93e953520e4658a9160da4b2022ff0&q=${latitude}+${longitude}`)
                 .then(response => response.json())
                 .then(data => {
                 const city = data.results[0].components.city;
+                console.log(city);
 
                 // Envie a cidade para o Firebase Analytics como um evento personalizado
                 logEvent(analytics, 'user_location', { city: city });
