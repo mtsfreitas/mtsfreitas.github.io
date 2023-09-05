@@ -51,7 +51,7 @@
                 const city = data.results[0].components.city;
 
                 // Envie a cidade para o Firebase Analytics como um evento personalizado
-                logEvent(analytics, 'user_location', { name: city });
+                logEvent(analytics, 'user_location', { city: 'city' });
                 })
                 .catch(error => {
                 console.error("Erro ao obter a cidade:", error);
