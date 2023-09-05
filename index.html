@@ -15,8 +15,8 @@
 <body>
 	<script type="module">
 		// Import the functions you need from the SDKs you need
-		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-		import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+		import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
 		// TODO: Add SDKs for Firebase products that you want to use
 		// https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -36,14 +36,9 @@
 		const app = initializeApp(firebaseConfig);
 		const analytics = getAnalytics(app);
 
-
-        logEvent(analytics, 'goal_completion', { name: 'lever_puzzle'});
-        analytics.logEvent('goal_completion', { name: 'lever_puzzle2'});
-
         function trackLinkClick(linkName) {
             logEvent(analytics, 'link_click', { link_name: linkName });
         }
-
 
         // Função para obter a localização do usuário
         function getUserLocation() {
