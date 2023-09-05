@@ -39,7 +39,10 @@
         function trackLinkClick(linkName) {
             logEvent(analytics, 'link_click', { link_name: linkName });
         }
-
+        firebase.analytics().logEvent('notification_received');
+        app.analytics().logEvent('testado')
+        analytics.logEvent('testall')
+        analytics().logEvent('tst')
         logEvent(analytics, 'link_click', { link_name: 'teste' });
 
         // Função para obter a localização do usuário
