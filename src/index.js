@@ -19,37 +19,3 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-
-function trackLinkClick(linkName) {
-    console.log(linkName);
-    logEvent(analytics, 'link_click', { link_name: linkName });
-}
-
-// Função para obter a localização do usuário
-function getUserLocation() {
-    if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-
-        fetch(`https://api.opencagedata.com/geocode/v1/json?key=bb93e953520e4658a9160da4b2022ff0&q=${latitude}+${longitude}`)
-            .then(response => response.json())
-            .then(data => {
-            const city = data.results[0].components.village;
-            const state = data.results[0].components.state;
-            const country = data.results[0].components.country;
-            
-            // Envie a cidade para o Firebase Analytics como um evento personalizado
-            logEvent(analytics, 'user_location', {
-                city: city,
-                state: state,
-                country: country
-                });
-            })
-            .catch(error => {
-            console.error("Erro ao obter a cidade:", error);
-            });
-        });
-    }
-}
-getUserLocation();
