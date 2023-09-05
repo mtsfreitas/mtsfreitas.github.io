@@ -51,7 +51,7 @@
                 .then(response => response.json())
                 .then(data => {
                 const city = data.results[0].components.city;
-                console.log(city);
+                console.log(data.results[0].components);
                 console.log(data);
                 console.log(response.json());
 
