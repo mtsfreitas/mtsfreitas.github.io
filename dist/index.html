@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Matheus Freitas Martins</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="language-toggle.js"></script>
+    <script src="theme-toggle.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div id="container--main">
+        <section id="wrapper--hero" class="section--page">
+            <img id="profile-pic" src="../assets/images/profile_pic.jpg">
+
+            <div>
+                <input type="checkbox" id="language-toggle" onclick="trackLinkClick('Idioma')"/>
+                <label for="language-toggle"></label>
+                <span id="toggle-label">Change language (pt-BR)</span>
+
+                <input type="checkbox" id="toggleSwitch" class="switch__input" hidden onclick="trackLinkClick('Tema')">
+                <label class="switch__label" for="toggleSwitch">
+                    <span class="switch__indicator"></span>
+                    <span class="moon-symbol">🌙</span>
+                    <span class="sun-symbol">🌤️</span>
+                </label>
+
+
+                <h1 id="user-name">Matheus F. Martins</h1>
+                <p id="bio">Computer Scientist | Software Engineer | iOS Developer </p>
+                <p>Belo Horizonte, Minas Gerais, Brazil </p>
+                <p id="availability">Available for Remote/Hybrid/On-site jobs</p>
+                <p id="email"><a href="mailto:mtsftsmts@gmail.com" id="availability" onclick="trackLinkClick('Email')">👉 mtsftsmts@gmail.com</a></p>
+            </div>
+        </section>
+
+        <section class="section--page">
+
+            <div id="socials--list">
+                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank" onclick="trackLinkClick('LinkedIn')">🔗 Linkedin</a>
+                <a href="https://github.com/mtsfreitas" target="_blank" onclick="trackLinkClick('GitHub')">🔗 Github</a>
+                <a href="https://wa.me/5531975195633" target="_blank" id="availability" onclick="trackLinkClick('WhatsApp')">🔗 Whatsapp</a>
+                <!--<a href="./assets/resume.pdf" target="_blank">Download Resume</a>-->
+            </div>
+        </section>
+
+        <section class="section--page">
+            <h2>Education</h2>
+            <ul id="qualifications--list">
+                <li>🎓 Bachelor's Degree in Computer Science | <a href="https://www.ufv.br/">Federal University of Viçosa</a></li>
+                <li>🎓 Computer Technician | <a href="https://www.fiemg.com.br/unidades/senai-santa-luzia-cfp-joao-carlos-giovannini/">SENAI Santa Luzia</a></li>
+                <li>🎓 Computer Assembler and Repairer | <a href="https://www.fiemg.com.br/unidades/senai-santa-luzia-cfp-joao-carlos-giovannini/">SENAI Santa Luzia</a></li>
+            </ul>
+        </section>
+
+        <section class="section--page">
+            <h2>Skills & Qualifications</h2>
+            <ul id="qualifications--list">
+                <li>✔️ Programming since 2015</li>
+                <li>✔️ <a href="https://app.voxy.com/certificates/proficiency-test/630d08da0f2bef16ed5e2c8b/">Voxy Proficiency Achivement Certificate - High Intermediate</a></li>
+                <li>✔️ <a href="https://cursos.alura.com.br/degree/certificate/27d054aa-9c5d-43f3-b2e5-b51b917d1ab9">iOS Training</a></li>
+                <li>✔️ <a href="https://drive.google.com/file/d/1RBU-OyEMX24k-6B3ujcCJmg8cdboj6Xp/view">iOS Bootcamp</a></li>
+            </ul>
+        </section>
+
+        <section class="section--page">
+            <h2>Tech stack</h2>
+
+            <div id="wrapper--techstack__items">
+                <div class="card--techstack"><span>Swift</span></div>
+                <div class="card--techstack"><span>Objective-C</span></div>
+                <div class="card--techstack"><span>SwiftUI</span></div>
+                <div class="card--techstack"><span>Java</span></div>
+                <div class="card--techstack"><span>Python</span></div>
+                <div class="card--techstack"><span>C, C++</span></div>
+                <div class="card--techstack"><span>SQL</span></div>
+                <div class="card--techstack"><span>HTML, CSS</span></div>
+                <div class="card--techstack"><span>PHP</span></div>
+                <div class="card--techstack"><span>Javascript</span></div>
+                <div class="card--techstack"><span>R</span></div>
+                <div class="card--techstack"><span>Kotlin</span></div>
+            </div>
+        </section>
+
+        <section id="work-history-wrapper" class="section--page">
+            <h2>Professional Experience</h2>
+
+            <div class="line-break"></div>
+            <div class="card--work-history">
+                <strong>💼 IOS DEVELOPER | <a href="https://www.linkedin.com/company/ciandt/"><strong id="enterprise">CI&T</strong></a>
+                </strong>
+                </strong>
+                <p>02/2021 - 04/2023</p>
+                <p>I worked on the development and maintenance of a native iOS mobile application using Swift and Objective-C that allows users to track and manage their blood glucose and insulin levels. It is designed for people with diabetes, and it can
+                    be used in conjunction with blood glucose monitoring systems to help users better understand how their diet, activity, and other factors can affect their blood sugar levels.</p>
+                <p>My responsibilities encompassed a variety of tasks: </p>
+                <ul>
+                    <li>Technical refinements of features and bugs</li>
+                    <li>Definition of Ready (DoR) and Definition of Done (DoD)</li>
+                    <li>Bug severity analysis in relation to Severity Matrix</li>
+                    <li>Behavior Driven Development (BDD)</li>
+                    <li>Identifying and fixing bugs and hotfixes</li>
+                    <li>Ticket management and prioritization for sprints</li>
+                    <li>Vulnerability report analysis by Veracode</li>
+                    <li>Code Reviews</li>
+                    <li>Unit Tests</li>
+                    <li>Creation of log events (Analytics and Firebase)</li>
+                    <li>Crashlytics log analysis</li>
+                    <li>Updating legacy codes (Objective-c to Swift)</li>
+                    <li>Release candidate build stage tagging</li>
+                    <li>Generation of test and release builds in Jenkins for App Center</li>
+                    <li>Deploy Management on the AppleStore</li>
+                    <li>Implementation and configuration of new environment (Stage-Hotfix) in Xcode, Jenkins, Google Analytics, Firebase and Visual Studio App Center</li>
+                    <li>Daily use of English for Speaking and Writing</li>
+                    <li>For 6 months, I worked as the sole iOS developer on the team</li>
+                </ul>
+                <p>Agile development support tools used for management:</p>
+                <ul>
+                    <li>Jira for task tracking, planning and prioritization</li>
+                    <li>Git + Bitbucket for version control</li>
+                </ul>
+                <p>Virtual meetings:</p>
+                <ul>
+                    <li>Daily meeting every day</li>
+                    <li>Team meeting once a week</li>
+                    <li>iOS + Android meeting once a week</li>
+                    <li>PDCA (Plan-Do-Check-Act) meeting once a week</li>
+                    <li>Retro at the end of the sprint</li>
+                    <li>And many other random meetings with the client...</li>
+                </ul>
+                <p>Team composition:</p>
+                <ul>
+                    <li>2 iOS Dev</li>
+                    <li>2 Android Dev</li>
+                    <li>2 QA</li>
+                    <li>1 Squad Leader</li>
+                    <li>1 Project Manager</li>
+                    <li>4 FullStack Dev</li>
+                    <li>3 Support Analysts</li>
+                    <li>1 Senior Manager</li>
+                </ul>
+                <p>Communication Channels:</p>
+                <ul>
+                    <li>Slack</li>
+                    <li>Microsoft Teams</li>
+                </ul>
+                <p>Conference Tools:</p>
+                <ul>
+                    <li>Google Meet</li>
+                    <li>Zoom</li>
+                </ul>
+                <p>Knowledge acquired in iOS development:</p>
+                <ul>
+                    <li>Foundation: Git, OS Environment, Xcode IDE, Debug, Playground, Project and Target, Simulator, Resolutions, Swift, Objective-c, Configs and Code Signing, App's Life Cycle / Debug, OOP, Delegate, Extension, Closure.</li><br>
+                    <li>User Interface: ViewCode, Storyboard, Segue, StackView, IBOutlet, IBAction, Auto Layout, Constraints, ScrollView, View Controller Life Cycle, Table/Collection View, Page View Controller, UIAlertController, Animations, Gestures.</li><br>
+                    <li>Architecture and Testing: Unit Tests, Snapshot Tests, Concepts of SOLID, Design Patterns, Localization, UI Tests, Modules and DI, MV* / Coordinator, Instruments, POP.</li><br>
+                    <li>Data and Networking: User Defaults, Keychain, GCD And Operations, URL Session, App Transport Security, Dependecy Manager (Cocoapods), Core Data, SQLite, Share Data / Sandbox, Notification.</li>
+                </ul>
+            </div>
+
+            <div class="line-break"></div>
+
+            <div class="card--work-history">
+                <strong>💼 COMPUTER TECHNICIAN | <a href="https://www.linkedin.com/company/a%C3%A7oforja-ind%C3%BAstria-de-forjados-s-a/"><strong id="enterprise">AÇOFORJA</strong></a>
+                </strong>
+                <p>01/2017 - 03/2017</p>
+                <p>I worked in supporting the systems that underpin the company's operations. I configured, installed, updated, and repaired computer hardware and software used in the industry. To ensure the computer systems operate efficiently and reliably,
+                    I handled the following tasks:</p>
+                <ul>
+                    <li>Network configuration</li>
+                    <li>Website editing</li>
+					<li>Deployment of anti-malware system</li>
+                    <li>Operating System Formatting</li>
+                    <li>Tape server backup</li>
+                    <li>Technical assistance to employees</li>
+                    <li>Component replacement</li>
+                </ul>
+            </div>
+
+            <div class="line-break"></div>
+
+            <div class="card--work-history">
+                <strong>💼 UI/UX DESIGNER | <a href="https://github.com/mtsfreitas/arts-portfolio"><strong id="enterprise">FREELANCER</strong></a>
+                </strong>
+                <p>01/2010 - 06/2020</p>
+                <p>Over the years, I have self-taught myself graphic design and worked as a freelancer, creating a range of materials such as:</p>
+                <ul>
+                    <li>Brands</li>
+                    <li>Flyers</li>
+                    <li>Mobile interfaces</li>
+                    <li>Digital illustrations</li>
+                    <li>Business cards </li>
+                    <li>Marketing Videos </li>
+                </ul>
+                <p>Through this experience, I have developed strong relationships with clients and learned how to effectively communicate and collaborate with them.</p>
+            </div>
+
+            <div class="line-break"></div>
+
+
+        </section>
+
+        <section class="section--page">
+            <h2>Projects & Accomplishments</h2>
+
+            <div class="card--project">
+                <a href="project4.html"><span>🏆 </span>2º Mission Accomplished | CI&T</a>
+            </div>
+
+            <div class="card--project">
+                <a href="project3.html"><span>🏆 </span>1º Mission Accomplished | CI&T</a>
+            </div>
+
+            <div class="card--project">
+                <a href="project2.html"><span>🏆 </span>You Rock! Go for it | CI&T</a>
+            </div>
+
+            <div class="card--project">
+                <a href="project1.html"><span>🏆 </span>Team Highlight | CI&T</a>
+            </div>
+
+            <div class="card--project">
+                <a href="project5.html"><span>🏆 </span> Innovative Student | SENAI Santa Luzia</a>
+            </div>
+
+        </section>
+
+
+    </div>
+
+</body>
+
+</html>
