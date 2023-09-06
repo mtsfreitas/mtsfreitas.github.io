@@ -8,4 +8,5 @@ References:
 * https://stackoverflow.com/questions/26107125/cannot-read-property-addeventlistener-of-null
 * https://stackoverflow.com/questions/66644782/uncaught-typeerror-failed-to-resolve-module-specifier-firebase-app-relative
 * https://stackoverflow.com/questions/36782467/set-subdirectory-as-website-root-on-github-pages
+* https://favicon.io/favicon-converter/
 -->
