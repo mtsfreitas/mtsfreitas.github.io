@@ -110,4 +110,14 @@ if (githubLink) {
     console.error("Element with ID 'github' not found.");
 }
 
+// Add event listener for the meeting link
+const meetingLink = document.getElementById("meeting");
+if (meetingLink) {
+    meetingLink.addEventListener("click", function () {
+        trackLinkClick('Meeting');
+    });
+} else {
+    console.error("Element with ID 'meeting' not found.");
+}
+
 getUserLocation();
