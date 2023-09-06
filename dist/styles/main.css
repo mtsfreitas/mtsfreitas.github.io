@@ -72,7 +72,7 @@
 }
 
 .card--techstack:hover {
-    background-color: greenyellow;
+    background-color: var(--mainLinkColor-dark);
 }
 
 .light-mode .card--techstack:hover span {
