@@ -40,7 +40,7 @@
 
 
 
-#availability {
+#availability, #email, #whatsapp {
     animation: blink 1s infinite;
     /* Aplica a animação de piscar */
 }

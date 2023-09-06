@@ -7,23 +7,20 @@
     <title>Matheus Freitas Martins</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="language-toggle.js"></script>
-    <script src="theme-toggle.js"></script>
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 
 <body>
     <div id="container--main">
         <section id="wrapper--hero" class="section--page">
-            <img id="profile-pic" src="assets/images/profile_pic.jpg">
+            <img id="profile-pic" src="/assets/images/profile_pic.jpg">
 
             <div>
-                <input type="checkbox" id="language-toggle" onclick="trackLinkClick('Idioma')"/>
+                <input type="checkbox" id="language-toggle"/>
                 <label for="language-toggle"></label>
                 <span id="toggle-label">Change language (pt-BR)</span>
 
-                <input type="checkbox" id="toggleSwitch" class="switch__input" hidden onclick="trackLinkClick('Tema')">
+                <input type="checkbox" id="toggleSwitch" class="switch__input" hidden>
                 <label class="switch__label" for="toggleSwitch">
                     <span class="switch__indicator"></span>
                     <span class="moon-symbol">🌙</span>
@@ -35,16 +32,16 @@
                 <p id="bio">Computer Scientist | Software Engineer | iOS Developer </p>
                 <p>Belo Horizonte, Minas Gerais, Brazil </p>
                 <p id="availability">Available for Remote/Hybrid/On-site jobs</p>
-                <p id="email"><a href="mailto:mtsftsmts@gmail.com" id="availability" onclick="trackLinkClick('Email')">👉 mtsftsmts@gmail.com</a></p>
+                <p id="email"><a href="mailto:mtsftsmts@gmail.com" id="email">👉 mtsftsmts@gmail.com</a></p>
             </div>
         </section>
 
         <section class="section--page">
 
             <div id="socials--list">
-                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank" onclick="trackLinkClick('LinkedIn')">🔗 Linkedin</a>
-                <a href="https://github.com/mtsfreitas" target="_blank" onclick="trackLinkClick('GitHub')">🔗 Github</a>
-                <a href="https://wa.me/5531975195633" target="_blank" id="availability" onclick="trackLinkClick('WhatsApp')">🔗 Whatsapp</a>
+                <a href="https://www.linkedin.com/in/mtsfreitas/" target="_blank" id="linkedin">🔗 Linkedin</a>
+                <a href="https://github.com/mtsfreitas" target="_blank" id="github">🔗 Github</a>
+                <a href="https://wa.me/5531975195633" target="_blank" id="whatsapp">🔗 Whatsapp</a>
                 <!--<a href="./assets/resume.pdf" target="_blank">Download Resume</a>-->
             </div>
         </section>
@@ -232,7 +229,9 @@
 
 
     </div>
-
+    <script src="language-toggle.js"></script>
+    <script src="theme-toggle.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

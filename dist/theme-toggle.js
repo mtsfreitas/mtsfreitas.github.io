@@ -16,9 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
             moonSymbol.style.display = "none";
             
             // Registre o evento de mudança de tema no Firebase Analytics
-            firebase.analytics().logEvent('theme_toggle', {
-                theme: 'light',
+            // Emita o evento personalizado de mudança de tema
+            const themeToggleEvent = new CustomEvent("theme_toggle_click", {
+                detail: { linkName: 'LightTheme' }
             });
+            toggleSwitch.dispatchEvent(themeToggleEvent);
         } else {
             // Se o switch estiver desativado (modo Dark)
             body.classList.add("dark-mode");
@@ -27,9 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
             sunSymbol.style.display = "none";
             
             // Registre o evento de mudança de tema no Firebase Analytics
-            firebase.analytics().logEvent('theme_toggle', {
-                theme: 'dark',
+            // Emita o evento personalizado de mudança de tema
+            const themeToggleEvent = new CustomEvent("theme_toggle_click", {
+                detail: { linkName: 'DarkTheme' }
             });
+            toggleSwitch.dispatchEvent(themeToggleEvent);
         }
     });
 });

@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAnalytics, logEvent } from 'firebase/analytics';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 function trackLinkClick(linkName) {
-    console.log(linkName);
+    console.log('clicouuuuu', linkName);
     logEvent(analytics, 'link_click', { link_name: linkName });
 }
 
@@ -52,4 +53,61 @@ function getUserLocation() {
         });
     }
 }
+// evento personalizado do JavaScript para transmitir a ação do clique no elemento language-toggle para outros módulos, em vez de importar diretamente a função do Firebase.
+// Adicione um ouvinte de eventos personalizados para o elemento 'language-toggle'
+const languageToggle = document.getElementById("language-toggle");
+if (languageToggle) {
+    languageToggle.addEventListener("language_toggle_click", function (e) {
+        trackLinkClick(e.detail.linkName);
+    });
+}
+
+// Adicione um ouvinte de eventos personalizados para o elemento 'theme-toggle'
+const themeToggle = document.getElementById("toggleSwitch");
+if (themeToggle) {
+    themeToggle.addEventListener("theme_toggle_click", function (e) {
+        trackLinkClick(e.detail.linkName);
+    });
+}
+
+// Add event listener for the email link
+const emailLink = document.getElementById("email");
+if (emailLink) {
+    emailLink.addEventListener("click", function () {
+        trackLinkClick('Email');
+    });
+} else {
+    console.error("Element with ID 'email' not found.");
+}
+
+// Add event listener for the whatsapp link
+const whatsappLink = document.getElementById("whatsapp");
+if (whatsappLink) {
+    whatsappLink.addEventListener("click", function () {
+        trackLinkClick('Whatsapp');
+    });
+} else {
+    console.error("Element with ID 'whatsapp' not found.");
+}
+
+// Add event listener for the linkedin link
+const linkedinLink = document.getElementById("linkedin");
+if (linkedinLink) {
+    linkedinLink.addEventListener("click", function () {
+        trackLinkClick('LinkedIn');
+    });
+} else {
+    console.error("Element with ID 'linkedin' not found.");
+}
+
+// Add event listener for the github link
+const githubLink = document.getElementById("github");
+if (githubLink) {
+    githubLink.addEventListener("click", function () {
+        trackLinkClick('Github');
+    });
+} else {
+    console.error("Element with ID 'github' not found.");
+}
+
 getUserLocation();

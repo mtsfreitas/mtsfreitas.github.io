@@ -17,19 +17,23 @@ document.addEventListener("DOMContentLoaded", function () {
         if (languageToggle.checked) {
             // Redireciona para a versão em português
             window.location.href = "index_ptbr.html";
-            
+
             // Registre o evento de mudança de idioma no Firebase Analytics
-            firebase.analytics().logEvent('language_toggle', {
-                language: 'pt-BR',
+            // Dispare um evento personalizado 'language_toggle_click' com os detalhes necessários
+            const languageToggleEvent = new CustomEvent("language_toggle_click", {
+                detail: { linkName: 'pt-BR' }
             });
+            languageToggle.dispatchEvent(languageToggleEvent);
         } else {
             // Redireciona para a versão em inglês
             window.location.href = "index.html";
             
             // Registre o evento de mudança de idioma no Firebase Analytics
-            firebase.analytics().logEvent('language_toggle', {
-                language: 'en-US',
+            // Dispare um evento personalizado 'language_toggle_click' com os detalhes necessários
+            const languageToggleEvent = new CustomEvent("language_toggle_click", {
+                detail: { linkName: 'en-US' }
             });
+            languageToggle.dispatchEvent(languageToggleEvent);
         }
     }
 });
