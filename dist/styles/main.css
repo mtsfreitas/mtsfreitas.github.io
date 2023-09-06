@@ -222,6 +222,10 @@ a {
     visibility: hidden;
 }
 
+.switch__label:hover {
+    cursor: pointer;
+}
+
 label[for="language-toggle"] {
     cursor: pointer;
     width: 40px;
