@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Sorts Mill Goudy
+- Font Author: Copyright (c) 2010, Barry Schwartz (chemoelectric@chemoelectric.org)
+- Font Source: http://fonts.gstatic.com/s/sortsmillgoudy/v15/Qw3GZR9MED_6PSuS_50nEaVrfzgEXH0OjpM75PE.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
