@@ -166,7 +166,7 @@ if (yourockLink) {
 const mission1Link = document.getElementById("mission1");
 if (mission1Link) {
     mission1Link.addEventListener("click", function () {
-        logEvent(analytics, 'clicou_no_primeiro_mission_accomplished');
+        logEvent(analytics, 'clicou_no_primeiro_mission');
     });
 } else {
     console.error("Element with ID 'mission1' not found.");
@@ -176,7 +176,7 @@ if (mission1Link) {
 const mission2Link = document.getElementById("mission2");
 if (mission2Link) {
     mission2Link.addEventListener("click", function () {
-        logEvent(analytics, 'clicou_no_segundo_mission_accomplished');
+        logEvent(analytics, 'clicou_no_segundo_mission');
     });
 } else {
     console.error("Element with ID 'mission2' not found.");
