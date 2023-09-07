@@ -22,7 +22,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 function trackLinkClick(linkName) {
-    console.log('clicouuuuu', linkName);
     logEvent(analytics, 'link_click', { link_name: linkName });
 }
 
@@ -41,6 +40,10 @@ function getUserLocation() {
             const country = data.results[0].components.country;
             
             // Envie a cidade para o Firebase Analytics como um evento personalizado
+            logEvent(analytics, country);
+            logEvent(analytics, city);
+            logEvent(analytics, state);
+
             logEvent(analytics, 'user_location', {
                 city: city,
                 state: state,
@@ -57,6 +60,10 @@ function getUserLocation() {
 // Adicione um ouvinte de eventos personalizados para o elemento 'language-toggle'
 const languageToggle = document.getElementById("language-toggle");
 if (languageToggle) {
+
+    var language = languageToggle === "pt-BR" ? 'escolheu_portugues' : 'escolheu_ingles';
+    logEvent(analytics, language);
+
     languageToggle.addEventListener("language_toggle_click", function (e) {
         trackLinkClick(e.detail.linkName);
     });
@@ -65,6 +72,10 @@ if (languageToggle) {
 // Adicione um ouvinte de eventos personalizados para o elemento 'theme-toggle'
 const themeToggle = document.getElementById("toggleSwitch");
 if (themeToggle) {
+
+    var theme = themeToggle === "LightTheme" ? 'escolheu_tema_claro' : 'escolheu_tema_escuro';
+    logEvent(analytics, theme);
+
     themeToggle.addEventListener("theme_toggle_click", function (e) {
         trackLinkClick(e.detail.linkName);
     });
@@ -74,6 +85,7 @@ if (themeToggle) {
 const emailLink = document.getElementById("email");
 if (emailLink) {
     emailLink.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_email');
         trackLinkClick('Email');
     });
 } else {
@@ -84,6 +96,7 @@ if (emailLink) {
 const whatsappLink = document.getElementById("whatsapp");
 if (whatsappLink) {
     whatsappLink.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_whatsapp');
         trackLinkClick('Whatsapp');
     });
 } else {
@@ -94,6 +107,7 @@ if (whatsappLink) {
 const linkedinLink = document.getElementById("linkedin");
 if (linkedinLink) {
     linkedinLink.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_linkedin');
         trackLinkClick('LinkedIn');
     });
 } else {
@@ -104,6 +118,7 @@ if (linkedinLink) {
 const githubLink = document.getElementById("github");
 if (githubLink) {
     githubLink.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_github');
         trackLinkClick('Github');
     });
 } else {
@@ -114,10 +129,61 @@ if (githubLink) {
 const meetingLink = document.getElementById("meeting");
 if (meetingLink) {
     meetingLink.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_meeting');
         trackLinkClick('Meeting');
     });
 } else {
     console.error("Element with ID 'meeting' not found.");
+}
+
+// Add event listener for the innovative link
+const innovativeLink = document.getElementById("innovative");
+if (innovativeLink) {
+    innovativeLink.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_innovative');
+    });
+} else {
+    console.error("Element with ID 'innovative' not found.");
+}
+
+// Add event listener for the Team Highlight link
+const highlightLink = document.getElementById("highlight");
+if (highlightLink) {
+    highlightLink.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_team_highlight');
+    });
+} else {
+    console.error("Element with ID 'highlight' not found.");
+}
+
+// Add event listener for the yourock link
+const yourockLink = document.getElementById("yourock");
+if (yourockLink) {
+    yourockLink.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_yourock');
+    });
+} else {
+    console.error("Element with ID 'yourock' not found.");
+}
+
+// Add event listener for the mission1 link
+const mission1Link = document.getElementById("mission1");
+if (mission1Link) {
+    mission1Link.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_primeiro_mission_accomplished');
+    });
+} else {
+    console.error("Element with ID 'mission1' not found.");
+}
+
+// Add event listener for the mission1 link
+const mission2Link = document.getElementById("mission2");
+if (mission2Link) {
+    mission2Link.addEventListener("click", function () {
+        logEvent(analytics, 'clicou_no_segundo_mission_accomplished');
+    });
+} else {
+    console.error("Element with ID 'mission2' not found.");
 }
 
 getUserLocation();
