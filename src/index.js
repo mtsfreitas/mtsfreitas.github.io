@@ -182,4 +182,30 @@ if (mission2Link) {
     console.error("Element with ID 'mission2' not found.");
 }
 
+
+// Função para verificar o scroll e registrar os eventos quando apropriado
+function verificarScroll() {
+    const alturaDaPagina = document.body.scrollHeight;
+    const scrollAtual = window.scrollY;
+
+    const percentagem30 = (scrollAtual / alturaDaPagina) * 100;
+    const percentagem50 = (scrollAtual / alturaDaPagina) * 100;
+    const percentagem80 = (scrollAtual / alturaDaPagina) * 100;
+
+    if (percentagem30 >= 50) {
+        logEvent(analytics, 'scrollou_50_porcento');
+    }
+
+    if (percentagem50 >= 80) {
+        logEvent(analytics, 'scrollou_80_porcento');
+    }
+
+    if (percentagem80 >= 100) {
+        logEvent(analytics, 'scrollou_100_porcento');
+    }
+}
+  
+// Adicionar um listener de evento para verificar o scroll quando a página é rolada
+window.addEventListener("scroll", verificarScroll);
+
 getUserLocation();
