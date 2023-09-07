@@ -60,11 +60,9 @@ function getUserLocation() {
 // Adicione um ouvinte de eventos personalizados para o elemento 'language-toggle'
 const languageToggle = document.getElementById("language-toggle");
 if (languageToggle) {
-
-    var language = languageToggle === "pt-BR" ? 'escolheu_portugues' : 'escolheu_ingles';
-    logEvent(analytics, language);
-
     languageToggle.addEventListener("language_toggle_click", function (e) {
+        var language = languageToggle === "pt-BR" ? 'escolheu_portugues' : 'escolheu_ingles';
+        logEvent(analytics, language);
         trackLinkClick(e.detail.linkName);
     });
 }
@@ -72,11 +70,9 @@ if (languageToggle) {
 // Adicione um ouvinte de eventos personalizados para o elemento 'theme-toggle'
 const themeToggle = document.getElementById("toggleSwitch");
 if (themeToggle) {
-
-    var theme = themeToggle === "LightTheme" ? 'escolheu_tema_claro' : 'escolheu_tema_escuro';
-    logEvent(analytics, theme);
-
     themeToggle.addEventListener("theme_toggle_click", function (e) {
+        var theme = themeToggle === "LightTheme" ? 'escolheu_tema_claro' : 'escolheu_tema_escuro';
+        logEvent(analytics, theme);
         trackLinkClick(e.detail.linkName);
     });
 }
