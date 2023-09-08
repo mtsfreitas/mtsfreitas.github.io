@@ -212,14 +212,18 @@ function verificarScroll80() {
 function verificarScroll100() {
     const alturaDaPagina = document.body.scrollHeight;
     const scrollAtual = window.scrollY;
-    const percentagem100 = (scrollAtual / alturaDaPagina) * 100;
 
-    if (percentagem100 >= 100) {
+    // Verifique se o usuário está perto ou no final da página
+    if (scrollAtual >= alturaDaPagina - window.innerHeight) {
         logEvent(analytics, 'scrollou_100_porcento');
         // Remova o ouvinte de evento após o registro
         window.removeEventListener("scroll", verificarScroll100);
     }
 }
+
+// Adicionar o ouvinte de evento para verificar 100% de rolagem
+window.addEventListener("scroll", verificarScroll100);
+
 
 // Adicionar listeners de evento para cada função de verificação de rolagem
 window.addEventListener("scroll", verificarScroll50);
