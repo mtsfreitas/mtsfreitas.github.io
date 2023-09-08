@@ -182,37 +182,48 @@ if (mission2Link) {
     console.error("Element with ID 'mission2' not found.");
 }
 
-
-// Função para verificar o scroll e registrar os eventos quando apropriado
-function verificarScroll() {
+// Função para verificar o scroll e registrar o evento para 50% de rolagem
+function verificarScroll50() {
     const alturaDaPagina = document.body.scrollHeight;
     const scrollAtual = window.scrollY;
-
     const percentagem50 = (scrollAtual / alturaDaPagina) * 100;
-    const percentagem80 = (scrollAtual / alturaDaPagina) * 100;
-    const percentagem100 = (scrollAtual / alturaDaPagina) * 100;
 
     if (percentagem50 >= 50) {
         logEvent(analytics, 'scrollou_50_porcento');
         // Remova o ouvinte de evento após o registro
-        window.removeEventListener("scroll", verificarScroll);
+        window.removeEventListener("scroll", verificarScroll50);
     }
+}
+
+// Função para verificar o scroll e registrar o evento para 80% de rolagem
+function verificarScroll80() {
+    const alturaDaPagina = document.body.scrollHeight;
+    const scrollAtual = window.scrollY;
+    const percentagem80 = (scrollAtual / alturaDaPagina) * 100;
 
     if (percentagem80 >= 80) {
         logEvent(analytics, 'scrollou_80_porcento');
         // Remova o ouvinte de evento após o registro
-        window.removeEventListener("scroll", verificarScroll);
+        window.removeEventListener("scroll", verificarScroll80);
     }
+}
+
+// Função para verificar o scroll e registrar o evento para 100% de rolagem
+function verificarScroll100() {
+    const alturaDaPagina = document.body.scrollHeight;
+    const scrollAtual = window.scrollY;
+    const percentagem100 = (scrollAtual / alturaDaPagina) * 100;
 
     if (percentagem100 >= 100) {
         logEvent(analytics, 'scrollou_100_porcento');
         // Remova o ouvinte de evento após o registro
-        window.removeEventListener("scroll", verificarScroll);
+        window.removeEventListener("scroll", verificarScroll100);
     }
 }
 
-// Adicionar um listener de evento para verificar o scroll quando a página é rolada
-window.addEventListener("scroll", verificarScroll);
-
+// Adicionar listeners de evento para cada função de verificação de rolagem
+window.addEventListener("scroll", verificarScroll50);
+window.addEventListener("scroll", verificarScroll80);
+window.addEventListener("scroll", verificarScroll100);
 
 getUserLocation();
