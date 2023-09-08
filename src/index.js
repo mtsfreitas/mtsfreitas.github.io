@@ -192,20 +192,27 @@ function verificarScroll() {
     const percentagem80 = (scrollAtual / alturaDaPagina) * 100;
     const percentagem100 = (scrollAtual / alturaDaPagina) * 100;
 
-    if (percentagem50 == 50) {
+    if (percentagem50 >= 50) {
         logEvent(analytics, 'scrollou_50_porcento');
+        // Remova o ouvinte de evento após o registro
+        window.removeEventListener("scroll", verificarScroll);
     }
 
-    if (percentagem80 == 80) {
+    if (percentagem80 >= 80) {
         logEvent(analytics, 'scrollou_80_porcento');
+        // Remova o ouvinte de evento após o registro
+        window.removeEventListener("scroll", verificarScroll);
     }
 
-    if (percentagem100 == 100) {
+    if (percentagem100 >= 100) {
         logEvent(analytics, 'scrollou_100_porcento');
+        // Remova o ouvinte de evento após o registro
+        window.removeEventListener("scroll", verificarScroll);
     }
 }
-  
+
 // Adicionar um listener de evento para verificar o scroll quando a página é rolada
 window.addEventListener("scroll", verificarScroll);
+
 
 getUserLocation();
