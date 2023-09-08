@@ -188,19 +188,19 @@ function verificarScroll() {
     const alturaDaPagina = document.body.scrollHeight;
     const scrollAtual = window.scrollY;
 
-    const percentagem30 = (scrollAtual / alturaDaPagina) * 100;
     const percentagem50 = (scrollAtual / alturaDaPagina) * 100;
     const percentagem80 = (scrollAtual / alturaDaPagina) * 100;
+    const percentagem100 = (scrollAtual / alturaDaPagina) * 100;
 
-    if (percentagem30 >= 50) {
+    if (percentagem50 == 50) {
         logEvent(analytics, 'scrollou_50_porcento');
     }
 
-    if (percentagem50 >= 80) {
+    if (percentagem80 == 80) {
         logEvent(analytics, 'scrollou_80_porcento');
     }
 
-    if (percentagem80 >= 100) {
+    if (percentagem100 == 100) {
         logEvent(analytics, 'scrollou_100_porcento');
     }
 }
