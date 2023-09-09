@@ -182,31 +182,76 @@ if (mission2Link) {
     console.error("Element with ID 'mission2' not found.");
 }
 
-// Função para verificar o scroll e registrar o evento para 50% de rolagem
-function verificarScroll50() {
-    const alturaDaPagina = document.body.scrollHeight;
-    const scrollAtual = window.scrollY;
-    const percentagem50 = (scrollAtual / alturaDaPagina) * 100;
 
-    if (percentagem50 >= 50) {
-        logEvent(analytics, 'scrollou_50_porcento');
-        // Remova o ouvinte de evento após o registro
-        window.removeEventListener("scroll", verificarScroll50);
+// Função para verificar se a seção está visível na janela de visualização
+function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+}
+
+// Função para registrar o evento no Firebase
+function logiOSDeveloperViewed() {
+    // Verifique se a seção está visível
+    var professionalExperienceSection = document.getElementById('ios_developer_visualizado');
+    if (isElementInViewport(professionalExperienceSection)) {        
+        logEvent(analytics, 'ios_developer_visualizado');
+        // Remova o ouvinte de evento para não registrar múltiplas vezes
+        window.removeEventListener('scroll', logiOSDeveloperViewed);
     }
 }
 
-// Função para verificar o scroll e registrar o evento para 80% de rolagem
-function verificarScroll80() {
-    const alturaDaPagina = document.body.scrollHeight;
-    const scrollAtual = window.scrollY;
-    const percentagem80 = (scrollAtual / alturaDaPagina) * 100;
+// Adicione um ouvinte de evento de rolagem para chamar a função quando o usuário rolar
+window.addEventListener('scroll', logiOSDeveloperViewed);
 
-    if (percentagem80 >= 80) {
-        logEvent(analytics, 'scrollou_80_porcento');
-        // Remova o ouvinte de evento após o registro
-        window.removeEventListener("scroll", verificarScroll80);
+
+// Função para registrar o evento no Firebase
+function logComputerTechViewed() {
+    // Verifique se a seção está visível
+    var professionalExperienceSection = document.getElementById('computer_tech_visualizado');
+    if (isElementInViewport(professionalExperienceSection)) {        
+        logEvent(analytics, 'computer_tech_visualizado');
+        // Remova o ouvinte de evento para não registrar múltiplas vezes
+        window.removeEventListener('scroll', logComputerTechViewed);
     }
 }
+
+// Adicione um ouvinte de evento de rolagem para chamar a função quando o usuário rolar
+window.addEventListener('scroll', logComputerTechViewed);
+
+
+// Função para registrar o evento no Firebase
+function logDesignerViewed() {
+    // Verifique se a seção está visível
+    var professionalExperienceSection = document.getElementById('uiux_visualizado');
+    if (isElementInViewport(professionalExperienceSection)) {     
+        logEvent(analytics, 'uiux_visualizado');
+        // Remova o ouvinte de evento para não registrar múltiplas vezes
+        window.removeEventListener('scroll', logDesignerViewed);
+    }
+}
+
+// Adicione um ouvinte de evento de rolagem para chamar a função quando o usuário rolar
+window.addEventListener('scroll', logDesignerViewed);
+
+
+// Função para registrar o evento no Firebase
+function logConquistasViewed() {
+    // Verifique se a seção está visível
+    var professionalExperienceSection = document.getElementById('conquistas_visualizadas');
+    if (isElementInViewport(professionalExperienceSection)) {  
+        logEvent(analytics, 'conquistas_visualizadas');
+        // Remova o ouvinte de evento para não registrar múltiplas vezes
+        window.removeEventListener('scroll', logConquistasViewed);
+    }
+}
+
+// Adicione um ouvinte de evento de rolagem para chamar a função quando o usuário rolar
+window.addEventListener('scroll', logConquistasViewed);
+
+
 
 // Função para verificar o scroll e registrar o evento para 100% de rolagem
 function verificarScroll100() {
@@ -215,6 +260,7 @@ function verificarScroll100() {
 
     // Verifique se o usuário está perto ou no final da página
     if (scrollAtual >= alturaDaPagina - window.innerHeight) {
+        console.log("chegou 100");
         logEvent(analytics, 'scrollou_100_porcento');
         // Remova o ouvinte de evento após o registro
         window.removeEventListener("scroll", verificarScroll100);
@@ -224,10 +270,5 @@ function verificarScroll100() {
 // Adicionar o ouvinte de evento para verificar 100% de rolagem
 window.addEventListener("scroll", verificarScroll100);
 
-
-// Adicionar listeners de evento para cada função de verificação de rolagem
-window.addEventListener("scroll", verificarScroll50);
-window.addEventListener("scroll", verificarScroll80);
-window.addEventListener("scroll", verificarScroll100);
 
 getUserLocation();
