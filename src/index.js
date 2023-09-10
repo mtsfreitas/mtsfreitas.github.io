@@ -71,7 +71,8 @@ if (languageToggle) {
 const themeToggle = document.getElementById("toggleSwitch");
 if (themeToggle) {
     themeToggle.addEventListener("theme_toggle_click", function (e) {
-        var theme = themeToggle === "LightTheme" ? 'escolheu_tema_claro' : 'escolheu_tema_escuro';
+        var theme = themeToggle.checked ? 'escolheu_tema_claro' : 'escolheu_tema_escuro';
+        console.log(theme);
         logEvent(analytics, theme);
         trackLinkClick(e.detail.linkName);
     });
@@ -197,7 +198,7 @@ function logiOSDeveloperViewed() {
     // Verifique se a seção está visível
     var professionalExperienceSection = document.getElementById('ios_developer_visualizado');
     if (isElementInViewport(professionalExperienceSection)) {        
-        logEvent(analytics, 'ios_developer_visualizado');
+        logEvent(analytics, 'visualizou_ios_developer');
         // Remova o ouvinte de evento para não registrar múltiplas vezes
         window.removeEventListener('scroll', logiOSDeveloperViewed);
     }
@@ -212,7 +213,7 @@ function logComputerTechViewed() {
     // Verifique se a seção está visível
     var professionalExperienceSection = document.getElementById('computer_tech_visualizado');
     if (isElementInViewport(professionalExperienceSection)) {        
-        logEvent(analytics, 'computer_tech_visualizado');
+        logEvent(analytics, 'visualizou_computer_tech');
         // Remova o ouvinte de evento para não registrar múltiplas vezes
         window.removeEventListener('scroll', logComputerTechViewed);
     }
@@ -227,7 +228,7 @@ function logDesignerViewed() {
     // Verifique se a seção está visível
     var professionalExperienceSection = document.getElementById('uiux_visualizado');
     if (isElementInViewport(professionalExperienceSection)) {     
-        logEvent(analytics, 'uiux_visualizado');
+        logEvent(analytics, 'visualizou_uiux');
         // Remova o ouvinte de evento para não registrar múltiplas vezes
         window.removeEventListener('scroll', logDesignerViewed);
     }
@@ -242,7 +243,7 @@ function logConquistasViewed() {
     // Verifique se a seção está visível
     var professionalExperienceSection = document.getElementById('conquistas_visualizadas');
     if (isElementInViewport(professionalExperienceSection)) {  
-        logEvent(analytics, 'conquistas_visualizadas');
+        logEvent(analytics, 'visualizou_conquistas');
         // Remova o ouvinte de evento para não registrar múltiplas vezes
         window.removeEventListener('scroll', logConquistasViewed);
     }
