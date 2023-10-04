@@ -121,6 +121,26 @@ if (githubLink) {
     console.error("Element with ID 'github' not found.");
 }
 
+const resumeLink = document.getElementById("resume");
+if (resumeLink) {
+    resumeLink.addEventListener("click", function () {
+        logEvent(analytics, 'baixou_resume');
+        trackLinkClick('Resume');
+    });
+} else {
+    console.error("Element with ID 'resume' not found.");
+}
+
+const curriculoLink = document.getElementById("curriculo");
+if (curriculoLink) {
+    curriculoLink.addEventListener("click", function () {
+        logEvent(analytics, 'baixou_curriculo');
+        trackLinkClick('Curriculo');
+    });
+} else {
+    console.error("Element with ID 'curriculo' not found.");
+}
+
 // Add event listener for the meeting link
 const meetingLink = document.getElementById("meeting");
 if (meetingLink) {
