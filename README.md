@@ -1,5 +1,7 @@
 # mtsfreitas.github.io
 <!-- 
+Executar o comando: "node_modules/.bin/webpack" após cada alteração no index.js para gerar o main.js
+
 References:
 * https://www.youtube.com/watch?v=rQvOAnNvcNQ&t=453s
 * https://gist.github.com/cobyism/4730490
